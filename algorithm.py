@@ -42,10 +42,10 @@ class Algo:
                     came_from[neighbour] = spot
                     if neighbour not in open_set_hash:
                         counter += 1
-                        open_set.put((F_scores[neighbour], counter, neighbour))
                         open_set_hash.add(neighbour)
                         neighbour.make_open()
                         time.sleep(timeout)
+                        open_set.put((F_scores[neighbour], counter, neighbour))
 
             if spot != start_spot:
                 spot.make_closed()

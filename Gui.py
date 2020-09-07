@@ -4,6 +4,7 @@ from params import Params, Colors
 import threading
 from algorithm import Algo
 import sys
+import tkinter
 
 
 class Draw:
@@ -84,7 +85,7 @@ class GUI:
                 elif event.type == pygame.MOUSEBUTTONUP:
                     mouse_button_hold = False
                 elif event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_SPACE and not self.solving:
+                    if event.key == pygame.K_SPACE and not self.solving and self.end:
                         self.solving = True
                         thread = threading.Thread(target=Algo.start,
                                                 args=(board, self.start, self.end, Params.ROWS))
